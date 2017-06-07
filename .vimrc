@@ -10,14 +10,18 @@
 """ K O L O R Y <<<
 "
 "kolory w putty. TO_DO - zwykly terminal?
-set t_Co=256
+"set t_Co=256
 
 syntax on
-colorscheme elflord
+if has('gui_running')
+	colorscheme torte
+else
+	colorscheme elflord
+endif
 
 "kolory komentarzy na zielono a linii na szaro
 highlight Comment ctermfg=darkgreen
-highlight Comment guifg=darkgreen
+"highlight Comment guifg=darkgreen
 highlight LineNr ctermfg=darkgrey
 highlight LineNr guifg=darkgrey
 
