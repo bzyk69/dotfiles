@@ -32,17 +32,19 @@ set guicursor=n-v-c:block-Cursor
 set guicursor+=i:ver25-iCursor
 set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
+"podkreslenie w momencie edycji
+:autocmd InsertEnter,InsertLeave * set cul!
 "TERM - kolor kursora
-if &term =~ "xterm\\|rxvt\\|screen"
+"if &term =~ "xterm\\|rxvt\\|screen"
 " use an orange cursor in insert mode
-let &t_SI = "\<Esc>]12;red\x7"
+"let &t_SI = "\<Esc>]12;red\x7"
 " use a red cursor otherwise
-let &t_EI = "\<Esc>]12;green\x7"
-silent !echo -ne "\033]12;green\007"
+"let &t_EI = "\<Esc>]12;yellow\x7"
+"silent !echo -ne "\033]12;yellow\007"
 " reset cursor when vim exits
-autocmd VimLeave * silent !echo -ne "\033]12\007"
+"autocmd VimLeave * silent !echo -ne "\033]12\007"
 " use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
-endif
+"endif
 
 """ O G O L N E <<<
 "
