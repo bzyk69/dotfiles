@@ -83,6 +83,10 @@ inoremap jj <Esc>
 "inoremap <Leader><Tab> <Tab>
 " wstawianie daty do pliku pod klawiszem F2
 map <F2> a<C-R>=strftime("%c")<CR><Esc>
+"zamykanie nawiasow
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {<CR>}<Esc>O
 
 """ F U N K C J E <<<
 "
