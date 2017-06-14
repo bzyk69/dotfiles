@@ -35,7 +35,8 @@ set nowrap
 set hlsearch
 set nocompatible 
 set textwidth=0		"defaultowo nie zawijamy wierszy
-
+set ruler
+set rulerformat=%40(%t/%y/%{&fenc}/%{&ff}%=%l,%c%V%5(%P%)%)
 """ P O W L O K A <<<
 "
 "nnoremap <silent> <F5> :!python3 %<CR>
@@ -62,6 +63,10 @@ inoremap jj <Esc>
 "inoremap <Leader><Tab> <Tab>
 " wstawianie daty do pliku pod klawiszem F2
 map <F2> a<C-R>=strftime("%c")<CR><Esc>
+"zamykanie nawiasow
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+autocmd Filetype c,cpp inoremap { {<CR>}<Esc>O
 
 """ F U N K C J E <<<
 "
@@ -76,8 +81,6 @@ nnoremap <F7> :call FindAll()<cr>
 
 """ W I N D O W S <<<
 "
-"wyswietla numery linii i kolumny na dole
-set ruler
 "font dla windowsa
 set guifont=Liberation\ Mono:h12:cDEFAULT
 "kodowanie
