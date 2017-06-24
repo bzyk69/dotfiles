@@ -118,8 +118,12 @@ set wildmenu
 set guifont=Liberation\ Mono\ 12
 set encoding=utf-8
 " TO_DO - odpalic ponizsze tylko jesli uruchamiasz gvima ,bo terminal sie psuje
-"set lines=99 columns=99
-set guioptions-=T
+
+syntax on
+if has('gui_running')
+	set lines=99 columns=999
+	set guioptions-=T
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
