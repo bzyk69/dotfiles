@@ -64,8 +64,9 @@ inoremap jj <Esc>
 " wstawianie daty do pliku pod klawiszem F2
 map <F2> a<C-R>=strftime("%c")<CR><Esc>
 "zamykanie nawiasow
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
+inoremap ( ()<Esc>:let leavechar=")"<CR>i
+inoremap [ []<Esc>:let leavechar="]"<CR>i
+imap <C-j> <Esc>:exec "normal f" . leavechar<CR>a
 autocmd Filetype c,cpp inoremap { {<CR>}<Esc>O
 
 """ F U N K C J E <<<
