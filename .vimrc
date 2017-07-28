@@ -52,7 +52,8 @@ set nu
 set nowrap
 set hlsearch
 set nocompatible 
-set textwidth=0		"defaultowo nie zawijamy wierszy
+set textwidth=0					"defaultowo nie łamiemy wierszy
+au BufNewFile,BufRead *.txt set wrap tw=79	"zawijamy wiersze w plikach tekstowych
 set ruler
 set rulerformat=%40(%t/%y/%{&fenc}/%{&ff}%=%l,%c%V%5(%P%)%)
 """ P O W L O K A <<<
