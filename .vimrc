@@ -12,28 +12,28 @@
 "kolory w putty. TO_DO - zwykly terminal?
 "set t_Co=256
 
-syntax on
-if has('gui_running')
-	colorscheme torte
-else
+"syntax on
+"if has('gui_running')
+"	colorscheme torte
+"else
 	colorscheme elflord
-endif
+"endif
 
 "kolory komentarzy na zielono a linii na szaro
-highlight Comment ctermfg=darkgreen
+"highlight Comment ctermfg=darkgreen
 "highlight Comment guifg=darkgreen
-highlight LineNr ctermfg=darkgrey
-highlight LineNr guifg=darkgrey
+"highlight LineNr ctermfg=darkgrey
+"highlight LineNr guifg=darkgrey
 
 "kolor kursora
-highlight Cursor guifg=black guibg=green
-highlight iCursor guifg=black guibg=red
-set guicursor=n-v-c:block-Cursor
-set guicursor+=i:ver25-iCursor
-set guicursor+=n-v-c:blinkon0
-set guicursor+=i:blinkwait10
+"highlight Cursor guifg=black guibg=green
+"highlight iCursor guifg=black guibg=red
+"set guicursor=n-v-c:block-Cursor
+"set guicursor+=i:ver25-iCursor
+"set guicursor+=n-v-c:blinkon0
+"set guicursor+=i:blinkwait10
 "podkreslenie w momencie edycji
-:autocmd InsertEnter,InsertLeave * set cul!
+":autocmd InsertEnter,InsertLeave * set cul!
 "TERM - kolor kursora
 "if &term =~ "xterm\\|rxvt\\|screen"
 " use an orange cursor in insert mode
@@ -52,10 +52,10 @@ set nu
 set nowrap
 set hlsearch
 set nocompatible 
-set textwidth=0					"defaultowo nie łamiemy wierszy
-au BufNewFile,BufRead *.txt set wrap tw=79	"zawijamy wiersze w plikach tekstowych
+"set textwidth=0					"defaultowo nie łamiemy wierszy
+"au BufNewFile,BufRead *.txt set wrap tw=79	"zawijamy wiersze w plikach tekstowych
 set ruler
-set rulerformat=%40(%t/%y/%{&fenc}/%{&ff}%=%l,%c%V%5(%P%)%)
+"set rulerformat=%40(%t/%y/%{&fenc}/%{&ff}%=%l,%c%V%5(%P%)%)
 """ P O W L O K A <<<
 "
 "nnoremap <F6> :!python3 %<CR>
@@ -67,10 +67,10 @@ set rulerformat=%40(%t/%y/%{&fenc}/%{&ff}%=%l,%c%V%5(%P%)%)
 """ M A P O W A N I E <<<
 "
 "split navigations czyli skakanie po oknaj jak w tekscie vima
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+"nnoremap <C-J> <C-W><C-J>
+"nnoremap <C-K> <C-W><C-K>
+"nnoremap <C-L> <C-W><C-L>
+"nnoremap <C-H> <C-W><C-H>
 "mapowanie klawisza wyjscia z insert jj/tab do wyboru i testu
 "wiecej na http://vim.wikia.com/wiki/Avoid_the_escape_key
 "tam tez: TAB MOZNA wpisywac przez \ <tab> (trzeci inoremap)
@@ -84,35 +84,35 @@ inoremap jj <Esc>
 "inoremap <Tab> <Esc>`^
 "inoremap <Leader><Tab> <Tab>
 " wstawianie daty do pliku pod klawiszem F2
-map <F2> a<C-R>=strftime("%c")<CR><Esc>
+"map <F2> a<C-R>=strftime("%c")<CR><Esc>
 "zamykanie nawiasow
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-autocmd Filetype c,cpp inoremap { {<CR>}<Esc>O
+"inoremap ( ()<Esc>i
+"inoremap [ []<Esc>i
+"autocmd Filetype c,cpp inoremap { {<CR>}<Esc>O
 
 """ F U N K C J E <<<
 "
 " wyszukiwanie jak w notepadzie ++: :vimgrep /fraza/ % , :copen
 " lub funkcja i remap (w copen podalem domyslna wysokosc okna:
-function! FindAll()
-	call inputsave()
-	let p = input('Enter pattern:')
-	call inputrestore()
-	execute 'vimgrep "'.p.'" % |copen 10'
-endfunction
-nnoremap <F7> :call FindAll()<cr>
+"function! FindAll()
+"	call inputsave()
+"	let p = input('Enter pattern:')
+"	call inputrestore()
+"	execute 'vimgrep "'.p.'" % |copen 10'
+"endfunction
+"nnoremap <F7> :call FindAll()<cr>
 
 """ Tweaks for browsing <<<
 "
-let g:netrw_banner=0        " disable annoying banner
-let g:netrw_browse_split=4  " open in prior window
-let g:netrw_altv=1          " open splits to the right
-let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+"let g:netrw_banner=0        " disable annoying banner
+"let g:netrw_browse_split=4  " open in prior window
+"let g:netrw_altv=1          " open splits to the right
+"let g:netrw_liststyle=3     " tree view
+"let g:netrw_list_hide=netrw_gitignore#Hide()
+"let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " Display all matching files when we tab complete
 set path+=**
-set wildmenu
+"set wildmenu
 
 "" G V I M <<<
 "
@@ -121,8 +121,8 @@ set encoding=utf-8
 " TO_DO - odpalic ponizsze tylko jesli uruchamiasz gvima ,bo terminal sie psuje
 
 if has('gui_running')
-	set lines=99 columns=999
-	set guioptions-=T
+	set lines=40 columns=120
+"	set guioptions-=T
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -150,7 +150,7 @@ endif
 "let g:NERDTreeWinSize=90
 "mapowanie ctrl-n do otwierania nerdtree
 "map <C-n> :NERDTreeToggle<CR>
-map <C-n> :Lexplore<CR>
+"map <C-n> :Lexplore<CR>
 " close vim if the only window left open is a NERDTree
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " let NERDtree show hidden files
@@ -159,6 +159,6 @@ map <C-n> :Lexplore<CR>
 
 "All of your Plugins must be added before the following line
 "call vundle#end()            " required
-filetype plugin indent on    " required
+"filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
