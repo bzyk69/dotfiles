@@ -33,7 +33,7 @@ highlight LineNr guifg=darkgrey
 "set guicursor+=n-v-c:blinkon0
 "set guicursor+=i:blinkwait10
 "podkreslenie w momencie edycji
-":autocmd InsertEnter,InsertLeave * set cul!
+:autocmd InsertEnter,InsertLeave * set cul!
 "TERM - kolor kursora
 "if &term =~ "xterm\\|rxvt\\|screen"
 " use an orange cursor in insert mode
