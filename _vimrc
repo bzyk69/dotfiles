@@ -22,23 +22,23 @@ colorscheme torte
 highlight LineNr guifg=darkgrey
 
 "kolor kursora
-"highlight Cursor guifg=black guibg=green
-"highlight iCursor guifg=white guibg=red
-"set guicursor=n-v-c:block-Cursor
-"set guicursor+=i:ver25-iCursor
-"set guicursor+=n-v-c:blinkon0
-"set guicursor+=i:blinkwait10
-
+highlight Cursor guifg=black guibg=green
+highlight iCursor guifg=white guibg=red
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver25-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkwait10
 """ O G O L N E <<<
 "
 set nu 
 set nowrap
 set hlsearch
+set incsearch
 set nocompatible 
 "set textwidth=0					"defaultowo nie łamiemy wierszy
 "au BufNewFile,BufRead *.txt set wrap tw=80	"zawijamy wiersze w plikach tekstowych
 set ruler
-"set rulerformat=%40(%t/%y/%{&fenc}/%{&ff}%=%l,%c%V%5(%P%)%)
+set rulerformat=%40(%t/%y/%{&fenc}/%{&ff}%=%l,%c%V%5(%P%)%)
 """ P O W L O K A <<<
 "
 "nnoremap <silent> <F5> :!python3 %<CR>
@@ -86,6 +86,7 @@ inoremap jj <Esc>
 "
 "font dla windowsa
 set guifont=Liberation\ Mono:h12:cDEFAULT
+"set guifont=Consolas:h14
 "kodowanie
 set encoding=utf-8
 "rozmiar okna
@@ -96,12 +97,14 @@ set lines=40 columns=120
 "set clipboard=unnamed (byc moze potrzebne?)
 vmap <C-c> "+yi
 "kopiowanie w trybie normal (w normal podwojne ctrl-v) lub insert
-"vmap <C-v> c<ESC>"+p
-"imap <C-v> <ESC>"+pa
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
 " lokalizacja menu
 "set langmenu=en_US
-"source $VIMRUNTIME/delmenu.vim
-"source $VIMRUNTIME/menu.vim
+set langmenu=pl_PL
+let $LANG = 'pl_PL'
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
 
 
 """ P L U G I N Y <<<
