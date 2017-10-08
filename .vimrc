@@ -12,12 +12,12 @@
 "kolory w putty. TO_DO - zwykly terminal?
 set t_Co=256
 
-"syntax on
-"if has('gui_running')
-"	colorscheme torte
-"else
+syntax on
+if has('gui_running')
+	colorscheme torte
+else
 	colorscheme elflord
-"endif
+endif
 
 "kolory komentarzy na zielono a linii na szaro
 highlight Comment ctermfg=darkgreen
@@ -26,36 +26,37 @@ highlight LineNr ctermfg=darkgrey
 highlight LineNr guifg=darkgrey
 
 "kolor kursora
-"highlight Cursor guifg=black guibg=green
-"highlight iCursor guifg=black guibg=red
-"set guicursor=n-v-c:block-Cursor
-"set guicursor+=i:ver25-iCursor
-"set guicursor+=n-v-c:blinkon0
-"set guicursor+=i:blinkwait10
+highlight Cursor guifg=black guibg=green
+highlight iCursor guifg=black guibg=red
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver25-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkwait10
 "podkreslenie w momencie edycji
-:autocmd InsertEnter,InsertLeave * set cul!
+":autocmd InsertEnter,InsertLeave * set cul!
 "TERM - kolor kursora
-"if &term =~ "xterm\\|rxvt\\|screen"
+if &term =~ "xterm\\|rxvt\\|screen"
 " use an orange cursor in insert mode
-"let &t_SI = "\<Esc>]12;red\x7"
+let &t_SI = "\<Esc>]12;red\x7"
 " use a red cursor otherwise
-"let &t_EI = "\<Esc>]12;yellow\x7"
-"silent !echo -ne "\033]12;yellow\007"
+let &t_EI = "\<Esc>]12;yellow\x7"
+silent !echo -ne "\033]12;yellow\007"
 " reset cursor when vim exits
-"autocmd VimLeave * silent !echo -ne "\033]12\007"
+autocmd VimLeave * silent !echo -ne "\033]12\007"
 " use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
-"endif
+endif
 
 """ O G O L N E <<<
 "
 set nu
 set nowrap
 set hlsearch
+set incsearch
 set nocompatible 
 "set textwidth=0					"defaultowo nie łamiemy wierszy
 "au BufNewFile,BufRead *.txt set wrap tw=79	"zawijamy wiersze w plikach tekstowych
 set ruler
-"set rulerformat=%40(%t/%y/%{&fenc}/%{&ff}%=%l,%c%V%5(%P%)%)
+set rulerformat=%40(%t/%y/%{&fenc}/%{&ff}%=%l,%c%V%5(%P%)%)
 """ P O W L O K A <<<
 "
 "nnoremap <F6> :!python3 %<CR>
@@ -107,12 +108,13 @@ inoremap jj <Esc>
 "let g:netrw_banner=0        " disable annoying banner
 "let g:netrw_browse_split=4  " open in prior window
 "let g:netrw_altv=1          " open splits to the right
-"let g:netrw_liststyle=3     " tree view
+let g:netrw_liststyle=3     " tree view
+let g:netrw_winsize = 25	"procent zajecia ekranu
 "let g:netrw_list_hide=netrw_gitignore#Hide()
 "let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " Display all matching files when we tab complete
 set path+=**
-"set wildmenu
+set wildmenu
 
 "" G V I M <<<
 "
@@ -150,7 +152,7 @@ endif
 "let g:NERDTreeWinSize=90
 "mapowanie ctrl-n do otwierania nerdtree
 "map <C-n> :NERDTreeToggle<CR>
-"map <C-n> :Lexplore<CR>
+map <C-n> :Lexplore<CR>
 " close vim if the only window left open is a NERDTree
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " let NERDtree show hidden files
@@ -159,6 +161,6 @@ endif
 
 "All of your Plugins must be added before the following line
 "call vundle#end()            " required
-"filetype plugin indent on    " required
+filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
